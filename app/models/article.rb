@@ -12,7 +12,7 @@ class Article < ApplicationRecord
   end
 
   def valid_image_url
-    if !link.include?('.jpg') && !link.include?'.png') && !link.include?('.jpeg')
+    if !link.include?('.jpg') && !link.include?('.png') && !link.include?('.jpeg')
       errors.clear
       errors.add(:link, ' is not a valid image url')
       end
