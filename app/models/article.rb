@@ -23,7 +23,7 @@ class Article < ApplicationRecord
     req = Net::HTTP.new(url.host, url.port)
     req.use_ssl = true if url.scheme == 'https'
     res = req.request_head(url.path)
-    return unless res.code != "200"
+    return unless res.code != '200'
 
     errors.clear
     errors.add(:link, ' is not a valid url')
