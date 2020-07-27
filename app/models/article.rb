@@ -6,7 +6,7 @@ class Article < ApplicationRecord
 
   def valid_url
     return unless !link.start_with?('https://') && !link.start_with?('http://')
-    
+
     errors.clear
     errors.add(:link, ' is not a valid url')
   end
