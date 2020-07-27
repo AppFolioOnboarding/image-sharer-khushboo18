@@ -1,31 +1,31 @@
 class ArticlesController < ApplicationController
-    def new
-        @article = Article.new
-        render :new
-    end
+  def new
+    @article = Article.new
+    render :new
+  end
 
-    def index
-        @articles = Article.ArticlesController
-        render :index
-    end
+  def index
+    @articles = Article.ArticlesController
+    render :index
+  end
 
-    def show
-        @article = Article.find(params[:id])
-        render :show
-    end
+  def show
+    @article = Article.find(params[:id])
+    render :show
+  end
 
-    def create
-        @article = Article.new(article_params)
-        if @article.save
-            redirect_to @article
-        else
-            render :new
-        end
+  def create
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to @article
+    else
+      render :new
     end
+  end
 
-    private
+  private
 
-    def article_params
-        params.require(:article).permit(:link, :text)
-    end
+  def article_params
+    params.require(:article).permit(:link, :text)
+  end
 end
