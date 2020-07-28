@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'article count' do
+    assert_equal Article.count, 2
+  end
 end
