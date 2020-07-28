@@ -6,6 +6,8 @@
         <%= article.text %>
         <br/>
         <%= image_tag(article.link, :class => 'image') %>
+        <%= link_to 'Destroy', article_path(article),
+              method: :delete %>
         </p>
     <% end %>
 <% else %>
