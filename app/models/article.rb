@@ -1,4 +1,5 @@
 require 'net/http'
+require 'httparty'
 
 class Article < ApplicationRecord
   validates :link, presence: true
@@ -19,12 +20,8 @@ class Article < ApplicationRecord
   end
 
   def working_url
-    url = URI.parse(link)
-    req = Net::HTTP.new(url.host, url.port)
-    req.use_ssl = true if url.scheme == 'https'
-    res = req.request_head(url.path)
-    return unless res.code != '200'
-
+    response =  HTTParty.get(link)
+    return unless response.code != 200
     errors.clear
     errors.add(:link, ' is not a valid url')
   end
