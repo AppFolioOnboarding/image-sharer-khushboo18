@@ -1,15 +1,20 @@
-<p>Here is the index of all images added</p>
+<div class="container">
+<h2>Welcome to my Rails project!!</h2>
+
+<p><%= link_to("Click to post a link to an image", new_article_path) %></p>
+
+<h4>Image index - </h4>
 
 <% if @articles.any? %>
-    <% @articles.each do |article| %>
-        <p>
-        <%= article.text %>
+    <ol><% @articles.each do |article| %>
+        <li>
+        <p><%= article.text %>
         <br/>
-        <%= image_tag(article.link, :class => 'image') %>
-        <%= link_to 'Destroy', article_path(article),
-              method: :delete %>
-        </p>
+        <%= image_tag(article.link, :class => 'image') %></p>
+        </li>
     <% end %>
+    </ol>
 <% else %>
         <p>Nothing to show!</p>
 <% end %>
+</div>
