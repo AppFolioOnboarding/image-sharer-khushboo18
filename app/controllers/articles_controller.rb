@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.ArticlesController
+    @articles = Article.all
     render :index
   end
 
