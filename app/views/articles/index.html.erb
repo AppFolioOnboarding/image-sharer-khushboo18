@@ -1,0 +1,13 @@
+<p>Here is the index of all images added</p>
+
+<% if @articles.any? %>
+    <% @articles.each do |article| %>
+        <p>
+        <%= article.text %>
+        <br/>
+        <%= image_tag(article.link, :class => 'image') %>
+        </p>
+    <% end %>
+<% else %>
+        <p>Nothing to show!</p>
+<% end %>
