@@ -22,7 +22,8 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create article' do
     assert_difference('Article.count') do
-      post articles_url, params: { article: { link: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/90B5/production/_104154073_gettyimages-154948449.jpg', text: 'A new llama' } }
+      post articles_url, params: { article: { link: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/90B5/production/_104154073_gettyimages-154948449.jpg',
+                                              text: 'A new llama' } }
     end
 
     assert_redirected_to article_url(Article.last)
