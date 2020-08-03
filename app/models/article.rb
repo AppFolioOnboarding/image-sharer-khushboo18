@@ -2,6 +2,7 @@ require 'net/http'
 require 'httparty'
 
 class Article < ApplicationRecord
+  acts_as_taggable_on :tags
   validates :link, presence: true
   validate :valid_url, :valid_image_url, :working_url
 

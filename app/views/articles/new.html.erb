@@ -11,18 +11,21 @@
 <% end %>
 
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
-    <p>
-      <%= form.label :link %><br>
-      <%= form.text_field :link %>
-    </p>
-   
-    <p>
-      <%= form.label :text %><br>
-      <%= form.text_field :text %>
-    </p>
-   
-    <p>
-      <%= form.submit %>
-    </p>
+  
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_field :text %>
+  </p>  
+  <p>
+    <%= form.label :link %><br>
+    <%= form.text_field :link %>
+  </p>
+  <p>
+    <%= form.label :tags %><br>
+    <%= form.text_field :tag_list %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
   <% end %>
 </div>

@@ -11,6 +11,7 @@
         <p><%= article.text %>
         <br/>
         <%= image_tag(article.link, :class => 'image') %></p>
+        <p>Tags: <%= article.tag_list %></p>
         </li>
     <% end %>
     </ol>
