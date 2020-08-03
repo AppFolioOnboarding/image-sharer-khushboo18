@@ -41,6 +41,21 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'filtering by tags' do
+    Article.create!(link: 'https://i.ytimg.com/vi/Tq_MdFz7mlE/maxresdefault.jpg',
+                    text: 'Testing filtering',
+                    tag_list: 'test_tag, random')
+    Article.create!(link: 'https://i.ytimg.com/vi/Tq_MdFz7mlE/maxresdefault.jpg',
+                    text: 'New image',
+                    tag_list: 'random2, test_tag, tag')
+    get articles_path, params: { tag: 'test_tag' }
+    assert_response :success
+    assert_select 'a', 6 do |list|
+      assert_match 'test_tag', list[2].values.to_s
+      assert_match 'test_tag', list[4].values.to_s
+    end
+  end
+
   test 'unpermitted fields raise errors' do
     ActionController::Parameters.action_on_unpermitted_parameters = :raise
     assert_raise ActionController::UnpermittedParameters do

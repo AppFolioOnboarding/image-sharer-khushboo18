@@ -11,7 +11,13 @@
         <p><%= article.text %>
         <br/>
         <%= image_tag(article.link, :class => 'image') %></p>
-        <p>Tags: <%= article.tag_list %></p>
+        <% if !article.tag_list.empty? %>
+            <p>Tags: 
+            <% article.tag_list.each do |tag| %>
+                <%= link_to tag, articles_path(tag: tag) %>
+            <% end %>
+            </p>
+        <% end %>
         </li>
     <% end %>
     </ol>
@@ -19,5 +25,3 @@
         <p>Nothing to show!</p>
 <% end %>
 </div>
-<h1>Welcome to Ropes</h1>
-<%= link_to("Click to post a link to an image", new_article_path) %>

@@ -5,8 +5,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order('created_at DESC')
-
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag]).order('created_at DESC') if params[:tag]
+    else
+      @articles = Article.order('created_at DESC')
+    end
     render :index
   end
 
