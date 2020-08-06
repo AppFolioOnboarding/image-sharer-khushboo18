@@ -11,4 +11,9 @@
   <% end %>
   </p>
 <% end %>
+<p>
+<%= link_to 'Delete Image', @article,
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this image?' } %></td>
+</p>
 </div>
