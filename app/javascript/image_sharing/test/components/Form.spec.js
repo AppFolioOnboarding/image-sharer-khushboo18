@@ -28,7 +28,6 @@ describe('<Form />', () => {
   it('should render the submit button correctly', () => {
     const wrapper = mount(<Form />);
     const button = wrapper.find('.btn');
-    assert.strictEqual(button.props().value, 'Submit');
     assert.strictEqual(button.length, 1);
   });
 });
